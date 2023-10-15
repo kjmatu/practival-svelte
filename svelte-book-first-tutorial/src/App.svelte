@@ -1,3 +1,12 @@
+<script>
+  let cart = [];
+
+  function addToCart(productId) {
+    cart = [...cart, productId];
+  }
+
+</script>
+
 <header class="header">
   <a class="header-title" href="/">Svelte EC</a>
   <nav>
@@ -23,7 +32,12 @@
         <dd>3500円</dd>
       </dl>
       <div>
-        <button>カートに入れる</button>
+
+        {#if !cart.includes('svelte-book')}
+          <button on:click={() => addToCart('svelte-book')}>カートに入れる</button>
+        {:else}
+          <button disabled>カート追加済み</button>
+        {/if}
       </div>
     </div>
   </div>

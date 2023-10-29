@@ -1,4 +1,24 @@
 <script>
+
+
+let relatedProducts = [
+  {
+    id: 'react-book',
+    name: 'React Book',
+    price: 3500,
+  },
+  {
+    id: 'vue-book',
+    name: 'Vue Book',
+    price: 3500,
+  },
+  {
+    id: 'angular-book',
+    name: 'Angular Book',
+    price: 3500,
+  },
+]
+
   let cart = [];
 
   function addToCart(productId) {
@@ -44,19 +64,14 @@
 
   <footer>
     <h3>関連商品</h3>
+
     <ul>
-      <li>
-        <a href="/products/react-book">React Book</a>
-        - 3500円
-      </li>
-      <li>
-        <a href="/products/vue-book">Vue Book</a>
-        - 3500円
-      </li>
-      <li>
-        <a href="/products/angular-book">Angular Book</a>
-        - 3500円
-      </li>
+      {#each relatedProducts as product}
+        <li>
+          <a href="/products/{product.id}">{product.name}</a>
+          - {product.price}円
+        </li>
+      {/each}
     </ul>
   </footer>
 

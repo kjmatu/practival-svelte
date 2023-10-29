@@ -1,4 +1,9 @@
 <script>
+let product = {
+  id: 'svelte-book',
+  name: 'Svelte Guide',
+  price: 3500,
+}
 
 
 let relatedProducts = [
@@ -42,19 +47,19 @@ let relatedProducts = [
 <article class="product">
   <div class="product-main">
     <div class="image-container">
-      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="『Svelte Guide』表紙">
+      <img src="https://github.com/svelte-book/sample-app/raw/main/static/svelte-book-1.png" alt="『{product.name}』表紙">
     </div>
 
     <div>
-      <h2>Svelte Guide</h2>
+      <h2>{product.name}</h2>
       <dl>
         <dt>価格</dt>
-        <dd>3500円</dd>
+        <dd>{product.price}円</dd>
       </dl>
       <div>
 
-        {#if !cart.includes('svelte-book')}
-          <button on:click={() => addToCart('svelte-book')}>カートに入れる</button>
+        {#if !cart.includes(product.id)}
+          <button on:click={() => addToCart(product.id)}>カートに入れる</button>
         {:else}
           <button disabled>カート追加済み</button>
         {/if}

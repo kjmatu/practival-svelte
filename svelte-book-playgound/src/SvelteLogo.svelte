@@ -1,0 +1,1 @@
+<img src="https://github.com/sveltejs/branding/raw/master/svelte-logo.png" alt="Svelteのロゴ">

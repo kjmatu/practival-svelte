@@ -5,27 +5,9 @@ async function getProductFromDatabase(productId) {
     return products.find(product => product.id === productId);
 };
 
-async function getRelatedProductsFromDatabase() {
-    return [
-		{
-			id: 'react-book',
-			name: 'React Book',
-			price: 2500,
-            images: ['https://github.com/svelte-book/sample-app/raw/main/static/react-book-1.png']
-		},
-		{
-			id: 'vue-book',
-			name: 'Vue Book',
-			price: 3500,
-            images: ['https://github.com/svelte-book/sample-app/raw/main/static/vue-book-1.png']
-		},
-		{
-			id: 'angular-book',
-			name: 'Angular Book',
-			price: 4500,
-            images: ['https://github.com/svelte-book/sample-app/raw/main/static/angular-book-1.png']
-		}
-	];
+async function getRelatedProductsFromDatabase(productId) {
+	const products = await loadProducts();
+	return products.filter((product) => productId !== product.id);
 };
 
 

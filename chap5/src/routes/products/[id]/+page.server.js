@@ -1,11 +1,5 @@
-import {readFile} from 'fs/promises';
-
+import { loadProducts } from '$lib/server/product.js';
 import {addToCart, loadCart} from '$lib/server/cart';
-
-async function loadProducts() {
-    const content = await readFile('data/products.json', 'utf8');
-    return JSON.parse(content);
-};
 
 export async function load({params}) {
     const products = await loadProducts();
